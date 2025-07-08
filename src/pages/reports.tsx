@@ -396,7 +396,7 @@ export default function ReportsPage() {
   const loadReportData = (reportId: string) => {
     var data = []
     if (reportId == "monthly-sales") {
-      data = salesData.data.map((item) => { return { month: item.month, sales: item.revenue } });
+      data = salesData.data.map((item:any) => { return { month: item.month, sales: item.revenue } });
     } else {
       data = mockReportData[reportId] || [];
     }
@@ -1065,7 +1065,7 @@ export default function ReportsPage() {
                                   </TableRow>
                                 ))}
                               {selectedReport?.type === "chart" &&
-                                getChartData().map((item, index) => (
+                                getChartData().map((item:any, index:any) => (
                                   <TableRow key={index} className="text-xs sm:text-sm">
                                     <TableCell className="font-medium">
                                       {item.name}

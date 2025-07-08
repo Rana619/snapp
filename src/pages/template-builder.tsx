@@ -52,7 +52,6 @@ import {
   List,
   ListOrdered,
   Palette,
-  FontSize,
   Highlighter,
   Strikethrough,
   Subscript,
