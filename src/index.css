@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground));
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-widget-container {
+  display: flex;
+  justify-content: space-between;
+}
+body.dragging {
+  cursor: grabbing !important;
+}
+body.dragging * {
+  cursor: grabbing !important;
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 640px) {
+  .widget-card {
+    /* height: 280px !important; */
+    margin-bottom: 1rem;
+  }
+
+  .text-responsive {
+    font-size: 0.875rem;
+  }
+
+  /* Mobile table responsiveness */
+  table {
+    font-size: 0.875rem;
+  }
+
+  th,
+  td {
+    padding: 0.5rem 0.25rem !important;
+  }
+
+  /* Improve card responsiveness */
+  .grid {
+    gap: 0.75rem !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .widget-card {
+    height: auto;
+    min-height: 300px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .widget-card {
+    min-height: 320px;
+  }
+}
+
+@layer components {
+  .widget-card {
+    @apply transition-all duration-200 ease-in-out bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700;
+  }
+
+  .widget-card:hover {
+    @apply transform -translate-y-0.5 shadow-lg dark:shadow-gray-900/20;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-in {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+  }
+
+  .slide-in-from-right-full {
+    animation-name: slideInFromRight;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.react-calendar {
+  border-radius: 10px;
+  width: auto;
+}
+
+.react-calendar__tile--now {
+  border-radius: 10px;
+}
+
+.react-calendar__tile {
+  border-radius: 10px;
+}
+
+.react-calendar__navigation button {
+  border-radius: 10px;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  padding: 0.5em;
+  font-size: 12px;
+  color: #404040;
+  font-weight: 100;
+  text-decoration: none;
+}
+
+.react-calendar abbr:where([title]) {
+  text-decoration: none;
+}
+
+.react-calendar__navigation {
+  margin-bottom: 0px;
+}
+
+/* Dark theme calendar styles */
+.dark .react-calendar {
+  background-color: #374151;
+  color: #f3f4f6;
+  border: 1px solid #4b5563;
+}
+
+.dark .react-calendar__navigation button {
+  background-color: #4b5563;
+  color: #f3f4f6;
+}
+
+.dark .react-calendar__navigation button:hover {
+  background-color: #6b7280;
+}
+
+.dark .react-calendar__tile {
+  background-color: #374151;
+  color: #f3f4f6;
+}
+
+.dark .react-calendar__tile:hover {
+  background-color: #4b5563;
+}
+
+.dark .react-calendar__tile--now {
+  background-color: #1f2937;
+  color: #60a5fa;
+}
+
+.dark .react-calendar__tile--active {
+  background-color: #3b82f6;
+  color: white;
+}
+/* Scrollbar  */
+ 
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+    height: 10px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(136, 136, 136);
+  border-radius: 10px;
+}
+ 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(136, 136, 136);
+}
+/* scrollbar */
+ 
+.form-container{
+  height: calc(100vh - 180px);
+  overflow-y: auto;
+  padding:15px;
+}
